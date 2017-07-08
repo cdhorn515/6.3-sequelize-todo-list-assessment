@@ -94,10 +94,11 @@ app.post('/edit/:id', function(req, res) {
     todo.priority = req.body.priority,
     todo.due_date = new Date(req.body.due_date),
     todo.completed = req.body.completed,
-    todo.assignee = req.body.assignee,
+    todo.assignee = req.body.assignee;
     todo.save();
+  }).then(function(){
+    res.redirect('/');
   });
-  res.redirect('/');
 });
 
 app.post('/delete/:id', function(req, res) {
