@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Update database</title>
+  </head>
+  <body>
+    {{#model}}
+    <form class="" action="/edit/{{id}}" method="post">
+    <div><input type="text" name="title" value="{{title}}"
+       placeholder="task"></div>
+    <div><input type="tel" name="priority" value="{{priority}}"
+      placeholder="priority"></div>
+    <div><input type="date" name="due_date" value="{{due_date}}"
+      placeholder="due date"></div>
+    <div><input type="checkbox" name="completed"
+      placeholder="" value="{{completed}}"></div>
+    <div><input type="text" name="assignee" value="{{assignee}}"
+      placeholder="assigned to"></div>
+    <div><input type="submit" name="" value="Add to list"></div>
+    {{/model}}
+</form>
+
+  </body>
+</html>

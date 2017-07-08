@@ -1,0 +1,31 @@
+{
+  "name": "5.3-todo-list-assessment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdhorn515/5.3-todo-list-assessment.git"
+  },
+  "author": "Christina Cornell",
+  "license": "ISC",
+  "jshintConfig": {
+    "esversion": 6
+  },
+  "bugs": {
+    "url": "https://github.com/cdhorn515/5.3-todo-list-assessment/issues"
+  },
+  "homepage": "https://github.com/cdhorn515/5.3-todo-list-assessment#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "jsdom": "^11.0.0",
+    "mustache-express": "^1.2.4",
+    "pg": "^6.4.0",
+    "query-selector": "^1.0.9",
+    "sequelize": "^4.2.0"
+  }
+}
