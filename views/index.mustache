@@ -12,14 +12,17 @@
 
     <div><input type="text" name="title" value=""
        placeholder="Things to do"></div>
+
     <div><input type="tel" name="priority" value=""
       placeholder="priority"></div>
+
     <div><input type="date" name="due_date" value=""
       placeholder="due_date"></div>
-    <div><input type="checkbox" name="completed"
-      placeholder="completed"></div>
+
+
     <div><input type="text" name="assignee" value=""
       placeholder="assignee"></div>
+
     <div><input type="submit" name="" value="Add to list"></div>
 </form>
 
@@ -30,12 +33,14 @@
     {{#model}}
     {{^completed}}
   <form class="" action="/todo/{{id}}" method="post">
-<!-- <input type="checkbox" name="completed"  -->
 <input type="submit" name="todo" value="Mark Complete" class="todoList">
 <label for="todo" id="">{{title}}</label>
 </form>
 <form class="" action="/update/{{id}}" method="post">
   <input type="submit" name="todo" value="Update" class="todoList">
+</form>
+<form class="" action="/delete/{{id}}" method="post">
+  <input type="submit" name="todo" value="Delete" class="todoList">
 </form>
 {{/completed}}
 {{/model}}
@@ -50,11 +55,13 @@
     {{#model}}
     {{#completed}}
     <form class="" action="/todo/{{id}}" method="post">
-  <input type="submit" name="completed" value="Completed" checked>
    <label for="todo" class="checked" id="">{{title}}</label>
  </form>
  <form class="" action="/update/{{id}}" method="post">
    <input type="submit" name="todo" value="Update" class="todoList">
+ </form>
+ <form class="" action="/delete/{{id}}" method="post">
+   <input type="submit" name="todo" value="Delete" class="todoList">
  </form>
    {{/completed}}
    {{/model}}

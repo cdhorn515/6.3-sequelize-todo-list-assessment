@@ -10,7 +10,7 @@ app.set('view engine', 'mustache');
 app.set('views', './views');
 //set variable named layout in mustache
 //(variable name, file you want to use it in)
-app.set('layout', 'layout');
+// app.set('layout', 'layout');
 
 //express.static told where to find css files
 app.use(express.static('public'));
@@ -57,8 +57,9 @@ app.post('/', function (req, res){
     due_date: new Date(req.body.due_date),
     completed: req.body.completed,
     assignee: req.body.assignee
+  }).then(function(todo){
+    res.redirect('/');
   });
-  res.redirect('/');
 });
 
 app.post('/todo/:id', function (req, res){
@@ -95,10 +96,18 @@ app.post('/edit/:id', function(req, res) {
     todo.completed = req.body.completed,
     todo.assignee = req.body.assignee,
     todo.save();
-  })
+  });
   res.redirect('/');
 });
 
+app.post('/delete/:id', function(req, res) {
+  var id = req.params.id;
+  models.Todo.destroy({
+    where: {id: id}
+  }).then(function() {
+    res.redirect('/');
+  });
+});
 
 app.listen(3000, function(){
 console.log("app started successfully!");

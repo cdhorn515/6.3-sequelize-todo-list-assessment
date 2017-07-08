@@ -10,7 +10,10 @@ module.exports = {
   },
 
   down: function (queryInterface, Sequelize) {
-    return queryInterface.removeColumn('Todos', 'assignee');
+    return queryInterface.removeColumn(
+      'Todos',
+      'assignee'
+    );
 
   }
 };
