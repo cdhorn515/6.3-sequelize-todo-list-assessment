@@ -8,43 +8,13 @@ const app = express();
 app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
 app.set('views', './views');
-//set variable named layout in mustache
-//(variable name, file you want to use it in)
-// app.set('layout', 'layout');
 
-//express.static told where to find css files
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 var todoIdx = 0;
 
-// models.Todo.create({
-//   title: "buy groceries",
-//   priority: 4,
-//   "due_date": new Date(2017, 5, 30),
-// });
-
-// models.Todo.create({
-//   title: "fold laundry",
-//   "due_date": new Date(2017, 6, 1),
-//   completed: true
-// });
-
-// models.Todo.create({
-//   title: "wash the dog",
-//   "due_date": new Date(2017, 6, 12),
-//   completed: false
-// });
-//
-// models.Todo.create({
-//   title: "clean kitchen",
-//   "due_date": new Date(2017, 5, 29),
-//   completed: true
-// });
-
-
 app.get('/', function(req, res){
-  //  todoIdx = 0;
   models.Todo.findAll().then(function(todos){
     res.render('index', {model: todos});
   });
@@ -113,22 +83,3 @@ app.post('/delete/:id', function(req, res) {
 app.listen(3000, function(){
 console.log("app started successfully!");
 });
-
-
-// var context = {
-//   todo: [
-//   'Buy groceries'
-//   , 'Fold laundry'
-//   , 'Wash the dog'
-// ]
-// , todoId: function(){
-//   return todoIdx++;
-// }
-// , completed: [
-//   'Clean kitchen'
-//   ,'Do homework'
-// ]
-// , completedId: function(){
-//   return completedIdx++;
-// }
-// });
